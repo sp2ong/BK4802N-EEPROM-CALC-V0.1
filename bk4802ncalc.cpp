@@ -87,7 +87,7 @@ void calc(float freq)
 	 ndiv=64;
     }
 	else if(freq<24||freq>512)
-	cout<<"error: Frequency is out of range! ³¬³öÔÊÐíÆµÂÊ·¶Î§"<<endl;
+	cout<<"error: Frequency is out of range! "<<endl;
 
 	rx=((freq-0.137)*ndiv*16777216)/21.25;
 	tx=(freq*ndiv*16777216)/21.25;
@@ -115,9 +115,9 @@ int main()
     int s=0;
 
 	ofstream ofs;
-	cout << "4802N FREQ CALC BIN_GEN" << endl;
+	cout << "BK4802N FREQ CALC BIN GEN (Linux version)" << endl;
 	ofs.open("BK4802NE2PROM.BIN",ios::out|ios::binary);
-	cout<<"strat. please key in 16 channels frequency(MHz)"<<endl;
+	cout<<"Strat. Please key in 16 channels frequency (MHz)"<<endl;
 	if(ofs)
 	{
 		for(int i=0;i<16;i++)
@@ -153,11 +153,13 @@ int main()
           cout<<dec<<s<<endl;
    } 
    ofs.close();
-   cout<<"Have write finish!. Please to see BK4802NE2PROM.BIN to write to 24C04!"<<endl;
-   //system("pause");
+   cout<<"The file has been created!. You can use fr exmaple the CH341 programmer 24c04 EEPROM to program and write the frequency."<<endl;
+  // system("pause");
    return 0;
 }
 
+// Default set register
+//
 //00 7C 04 02 40 F1 00 ED E0 17 E0 E0 43 85 00 07 
 //66 A0 FF FF 00 03 04 0E 40 F1 00 ED E0 3F E0 E0 
 //43 85 00 07 66 A0 FF FF E0 FF E0 FF 00 03 3C 9E 
